@@ -1,4 +1,5 @@
 BackGround BG = new BackGround();
+ScoreBoard SB = new ScoreBoard();
 
 void setup(){
   background(0);
@@ -6,5 +7,6 @@ void setup(){
 }
 
 void draw(){
-  BG.Board();
+  BG.Table();
+  SB.Board();
 }
