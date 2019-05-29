@@ -18,5 +18,10 @@ public class ScoreBoard{
     fill(255, 255, 255);
     textSize(26);
     text("SCORE", 69, 590);
+    
   }
+  
+ // public void playerScoreRed {
+ //   player
+  //}
 }
