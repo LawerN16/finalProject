@@ -1,8 +1,8 @@
 public class Puck{
   public Puck(){
   }
-  public void Circle(){
+  public void Circle(int x, int y){
     fill(142, 142, 142);
-    ellipse(400, 275, 25, 25);
+    ellipse(x, y, 25, 25);
   }
 }

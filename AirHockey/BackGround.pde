@@ -19,5 +19,10 @@ public class BackGround{
     rect(760, 320, 10, 210);
     //middle line
     rect(395, 30, 10, 490);
+    //text instructions
+    fill(255, 255, 255);
+    textSize(20);
+    text("Red player keys: WASD", 550, 590);
+    text("Blue player keys: IJKL", 550, 620);
   }
 }
