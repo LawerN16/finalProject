@@ -41,16 +41,16 @@ public class Puck{
       yspeed *= -1;
     }
     
-    if (y < 40) {
+    if (y < 50) {
       yspeed *= -1;
     }
     
-    if (x > 740 && (y < 210 || ( y > 320 + w/2 && y < 530))) {
+    if (x > 745 && (y < 210 || ( y > 320 + w/2 && y < 530))) {
       xspeed *= -1;
       yspeed *= -1;
     }
     
-    if (x < 30 + w/2 && (y < 210 || ( y > 320 + w/2 && y < 530))) {
+    if (x < 40 + w/2 && (y < 210 || ( y > 320 + w/2 && y < 530))) {
       xspeed *= -1;
       yspeed *= -1;
     }
@@ -61,5 +61,19 @@ public class Puck{
       x = width/2;
       y = height/2;
     }
+  }
+  void scored(int redScore, int blueScore){
+    textSize(45);
+    fill(255,255,255);
+    //text(redScore, 40, 660);
+    //text(blueScore, 150, 660);
+    if(x>770){
+      redScore++;
+    }
+    if(x<30){
+      redScore++;
+    }
+    text(redScore, 40, 660);
+    text(blueScore, 150, 660);
   }
 }

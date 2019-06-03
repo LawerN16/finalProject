@@ -1,8 +1,9 @@
-
 BackGround BG = new BackGround();
 ScoreBoard SB = new ScoreBoard();
 Puck p = new Puck();
 Players pl = new Players();
+int intRed = 0;
+int intBlue = 0;
 int redX = 45;
 int redY = 255;
 int blueX = 740;
@@ -27,8 +28,6 @@ void setup() {
 }
 
 void draw() {
-  //  println(""+mouseX+"X");
-  //  println(""+mouseY+"Y");
   background(0);
   BG.Table();
   SB.Board();
@@ -39,6 +38,7 @@ void draw() {
   p.BounceRed(redX, redY, 15, 50);
   p.BounceBlue(blueX, blueY, 15, 50);
   p.Move();
+  p.scored(intRed, intBlue);
   //moveRed();
   //moveBlue();
   //moveBall
@@ -163,7 +163,6 @@ void move(){
 }
 
 /*  Old movement code
-
 void moveRed() {
   if (key == 'W' || key == 'w') {
     redY -= 6;
@@ -179,7 +178,6 @@ void moveRed() {
     bounds();
   }
 }
-
 void moveBlue() {
   if (key == 'L' || key == 'l') {
     blueX += 6;
