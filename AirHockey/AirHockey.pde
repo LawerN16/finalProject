@@ -1,3 +1,4 @@
+
 BackGround BG = new BackGround();
 ScoreBoard SB = new ScoreBoard();
 Puck p = new Puck();
@@ -6,10 +7,20 @@ int redX = 45;
 int redY = 255;
 int blueX = 740;
 int blueY = 255;
+int speed = 6;
 int x=400;
 int y=250;
 int move=1;
 int yMove=1;
+boolean redUp = false;
+boolean redDown = false;
+boolean redLeft = false;
+boolean redRight = false;
+boolean blueUp = false;
+boolean blueDown = false;
+boolean blueLeft = false;
+boolean blueRight = false;
+
 void setup() {
   background(0);
   size(800, 700);
@@ -21,11 +32,15 @@ void draw() {
   background(0);
   BG.Table();
   SB.Board();
-  p.Circle(x, y);
+  p.Circle();
   playerRed();
   playerBlue();
-  moveRed();
-  moveBlue();
+  move();
+  p.BounceRed(redX, redY, 15, 50);
+  p.BounceBlue(blueX, blueY, 15, 50);
+  p.Move();
+  //moveRed();
+  //moveBlue();
   //moveBall
   if (move>0) {
     x+=5;
@@ -47,6 +62,108 @@ void draw() {
   }
 }
 
+void keyPressed(){
+  // Red movement
+  if (key == 'W' || key == 'w') {
+    redUp = true;
+  } 
+  if (key == 'A' || key == 'a') {
+    redLeft = true;
+  } 
+  if (key == 'S' || key == 's') {
+    redDown = true;
+  } 
+  if (key == 'D' || key == 'd') {
+    redRight = true;
+  }
+  
+  // Blue movement
+  
+  if (key == 'L' || key == 'l') {
+    blueRight = true;
+  } 
+  if (key == 'J' || key == 'j') {
+    blueLeft = true;
+  } 
+  if (key == 'I' || key == 'i') {
+    blueUp = true;
+  } 
+  if (key == 'K' || key == 'k') {
+    blueDown = true;
+  }
+}
+
+void keyReleased(){
+  // Red movement
+  if (key == 'W' || key == 'w') {
+    redUp = false;
+  } 
+  if (key == 'A' || key == 'a') {
+    redLeft = false;
+  } 
+  if (key == 'S' || key == 's') {
+    redDown = false;
+  } 
+  if (key == 'D' || key == 'd') {
+    redRight = false;
+  }
+  
+    // Blue movement
+  
+  if (key == 'L' || key == 'l') {
+    blueRight = false;
+  } 
+  if (key == 'J' || key == 'j') {
+    blueLeft = false;
+  } 
+  if (key == 'I' || key == 'i') {
+    blueUp = false;
+  } 
+  if (key == 'K' || key == 'k') {
+    blueDown = false;
+  }
+}
+
+void move(){
+  // Red movement
+  if (redUp) {
+    redY -= speed;
+    bounds();
+  } 
+  if (redLeft) {
+    redX -= speed;
+    bounds();
+  } 
+  if (redDown) {
+    redY += speed;
+    bounds();
+  } 
+  if (redRight) {
+    redX += speed;
+    bounds();
+  }
+   
+   // Blue movement
+  if (blueUp) {
+    blueY -= speed;
+    bounds();
+  } 
+  if (blueLeft) {
+    blueX -= speed;
+    bounds();
+  } 
+  if (blueDown) {
+    blueY += speed;
+    bounds();
+  } 
+  if (blueRight) {
+    blueX += speed;
+    bounds();
+  }
+}
+
+/*  Old movement code
+
 void moveRed() {
   if (key == 'W' || key == 'w') {
     redY -= 6;
@@ -62,6 +179,7 @@ void moveRed() {
     bounds();
   }
 }
+
 void moveBlue() {
   if (key == 'L' || key == 'l') {
     blueX += 6;
@@ -77,6 +195,8 @@ void moveBlue() {
     bounds();
   }
 }
+*/
+
 public void bounds() {
   if (redX < 40) {
     redX = 40;
