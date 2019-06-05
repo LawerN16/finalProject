@@ -39,9 +39,7 @@ void draw() {
   p.BounceBlue(blueX, blueY, 15, 50);
   p.Move();
   p.scored(intRed, intBlue);
-  //moveRed();
-  //moveBlue();
-  //moveBall
+  //ball moving
   if (move>0) {
     x+=5;
   } else {
@@ -60,6 +58,7 @@ void draw() {
   }
   if (x==745&&y>245&&y<325) {
   }
+  
 }
 
 void keyPressed(){

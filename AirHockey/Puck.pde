@@ -63,17 +63,13 @@ public class Puck{
     }
   }
   void scored(int redScore, int blueScore){
-    textSize(45);
-    fill(255,255,255);
-    //text(redScore, 40, 660);
-    //text(blueScore, 150, 660);
-    if(x>770){
+    if(x>=770){
       redScore++;
     }
-    if(x<30){
-      redScore++;
+    if(x<=30){
+      blueScore++;
     }
-    text(redScore, 40, 660);
-    text(blueScore, 150, 660);
+    System.out.println(redScore);
+    System.out.println(blueScore);
   }
 }
