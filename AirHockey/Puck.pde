@@ -5,6 +5,8 @@ public class Puck{
   float yspeed = 2.75;
   int w = 25;
   int h = 25;
+  int redScore = 0;
+  int blueScore = 0;
     
   public Puck(){
   }
@@ -57,19 +59,29 @@ public class Puck{
   }
   
   void reset(){
-    if (x > 770 || x < 30){
+    // Blue scored
+    if (x > 770){
       x = width/2;
       y = height/2;
-    }
+      blueScore += 1;
+    } 
+    // Red scored
+    else if (x < 30){
+      x = width/2;
+      y = height/2;
+      redScore += 1;
+    } 
+    
   }
-  void scored(int redScore, int blueScore){
-    if(x>=770){
-      redScore++;
-    }
-    if(x<=30){
-      blueScore++;
-    }
-    System.out.println(redScore);
-    System.out.println(blueScore);
+  void scored(){
+    // Red score
+    fill(255, 0, 0);
+    textSize(72);
+    text(blueScore, 32, 670);
+    
+    // Blue score
+    fill(0, 0, 255);
+    textSize(72);
+    text(redScore, 140, 670);
   }
 }

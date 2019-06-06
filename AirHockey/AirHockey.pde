@@ -38,7 +38,7 @@ void draw() {
   p.BounceRed(redX, redY, 15, 50);
   p.BounceBlue(blueX, blueY, 15, 50);
   p.Move();
-  p.scored(intRed, intBlue);
+  p.scored();
   //ball moving
   if (move>0) {
     x+=5;
